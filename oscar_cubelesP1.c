@@ -6,13 +6,11 @@
 
 MODULE_LICENSE("GPL");
 
-
 static char *argvA[] = {"/home/pi/buttonScripts/buttonA.sh",NULL}; // Path for button A
 static char *argvB[] = {"/home/pi/buttonScripts/buttonB.sh",NULL}; // Path for button B
 static char *argvC[] = {"/home/pi/buttonScripts/buttonC.sh",NULL}; // Path for button C
 static char *argvD[] = {"/home/pi/buttonScripts/buttonD.sh",NULL}; // Path for button D
 static char *envp[]= {"HOME=/", NULL};
-
 
 // Assigning the gpios to variables
 static unsigned int gpioLED = 17;            
@@ -33,8 +31,8 @@ static unsigned int buttonBnumberPresses = 0;
 static unsigned int buttonCnumberPresses = 0;  
 static unsigned int buttonDnumberPresses = 0;  
 
-static bool	        ledOn = 0;          
-static bool         led2On = 0;
+static bool ledOn = 0;          
+static bool led2On = 0;
 
 // Handler functions for the button interrupts
 static irq_handler_t  ebbgpio_irq_handlerA(unsigned int irq, void *dev_id, struct pt_regs *regs);
@@ -157,6 +155,7 @@ static irq_handler_t ebbgpio_irq_handlerA(unsigned int irq, void *dev_id, struct
 static irq_handler_t ebbgpio_irq_handlerB(unsigned int irq, void *dev_id, struct pt_regs *regs){
    ledOn = true;                          
    gpio_set_value(gpioLED, ledOn);          
+   
    printk(KERN_INFO "Phase 1 ASO: Button B state %d\n", gpio_get_value(gpioButtonB)); 
    printk(KERN_INFO "Phase 1 ASO: The button B has been pressed %d times\n", buttonBnumberPresses);
    buttonBnumberPresses++;                         
@@ -190,11 +189,5 @@ static irq_handler_t ebbgpio_irq_handlerD(unsigned int irq, void *dev_id, struct
    return (irq_handler_t) IRQ_HANDLED;      
 }
 
-
-
 module_init(ebbgpio_init);
 module_exit(ebbgpio_exit);
-
-
-
-

@@ -9,7 +9,7 @@ Linux Kernel Module to control multiple interrupt events on a Raspberry PI.
 
 ## General Info
 ***
-This univerisy project consists of creating a LKM in a Raspberry Pi with a Debian based OS. The LKM controlls the interrupt events generated through 4 buttons connected to the Raspberry PI GPIO's. Each time a button is pressed, a Bash script is executed and the state of the LEDs connected to the RaspberryPI are modified.
+This University project consists of creating a LKM in a Raspberry Pi with a Debian based OS. The LKM controls the interrupt events generated through 4 buttons connected to the Raspberry PI GPIO's. Each time a button is pressed, a Bash script is executed, and the state of the LEDs connected to the Raspberry PI are modified.
 
 ## Technologies
 ***

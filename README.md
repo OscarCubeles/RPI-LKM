@@ -21,7 +21,7 @@ A list of technologies used within the project:
 ***
 A little intro about the installation of the LKM in a RaspberryPI with a Raspberry PI OS installed. 
 ```
-$ git clone https://github.com/OscarCubeles/RPI_LKM.git
+$ git clone https://github.com/OscarCubeles/RPI-LKM.git
 $ make
 $ make install
 ```
